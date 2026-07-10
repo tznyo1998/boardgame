@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git -C \"D:\\\\Cursor\\\\Q1\" rev-parse --is-inside-work-tree 2>&1)",
+      "Bash(grep -rniE \"\\(api_key|apikey|api key|secret|password|passwd|token|bearer|sk-[a-zA-Z0-9]{20,}|pk-[a-zA-Z0-9]{20,}|access_key|private_key|credential\\)\" \\\\\n  \"D:/Cursor/Q1/abilitySystem.js\" \\\\\n  \"D:/Cursor/Q1/boardCamera.js\" \\\\\n  \"D:/Cursor/Q1/boardGraph.js\" \\\\\n  \"D:/Cursor/Q1/boardLandmarks.js\" \\\\\n  \"D:/Cursor/Q1/cards.js\" \\\\\n  \"D:/Cursor/Q1/characterSelect.js\" \\\\\n  \"D:/Cursor/Q1/fantasy-particles.js\" \\\\\n  \"D:/Cursor/Q1/gameState.js\" \\\\\n  \"D:/Cursor/Q1/index.html\" \\\\\n  \"D:/Cursor/Q1/main.js\" \\\\\n  \"D:/Cursor/Q1/styles.css\" \\\\\n  \"D:/Cursor/Q1/ui.js\" \\\\\n  2>/dev/null || echo \"NO MATCHES\")",
+      "Bash(grep -rniE \"\\(api_key|apikey|api key|secret|password|passwd|token|bearer|sk-[a-zA-Z0-9]{20,}|pk-[a-zA-Z0-9]{20,}|access_key|private_key|credential\\)\" \\\\\n  \"D:/Cursor/Q1/docs/\" \\\\\n  \"D:/Cursor/Q1/.claude/\" \\\\\n  2>/dev/null || echo \"NO MATCHES\")",
+      "Bash(grep -rniE \"\\(api_key|apikey|api key|secret|password|passwd|token|bearer|sk-[a-zA-Z0-9]{20,}|pk-[a-zA-Z0-9]{20,}|access_key|private_key|credential\\)\" \\\\\n  \"D:/Cursor/Q1/assets/board/README.txt\" \\\\\n  \"D:/Cursor/Q1/assets/sfx/PLACEHOLDER.txt\" \\\\\n  2>/dev/null || echo \"NO MATCHES\")",
+      "Bash(git -C \"D:/Cursor/Q1\" status --short --branch)",
+      "Bash(git -C \"D:/Cursor/Q1\" add .gitignore abilitySystem.js boardCamera.js boardGraph.js boardLandmarks.js cards.js characterSelect.js fantasy-particles.js gameState.js index.html main.js styles.css ui.js assets/ docs/ .claude/)"
+    ]
+  }
+}

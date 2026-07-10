@@ -1,0 +1,2 @@
+Placeholder SFX folder for future audio files.
+Expected keys: move_step, dice_roll, hit.

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Realm of Conquest — Fantasy Battle Board</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700&family=IM+Fell+English:ital@0;1&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <canvas id="fxCanvas" class="fx-canvas"></canvas>
+  <div class="bg-mist"></div>
+  <div class="rune-ring rune-ring-1"></div>
+  <div class="rune-ring rune-ring-2"></div>
+
+  <div class="app-shell">
+
+    <header class="app-header">
+      <div class="app-header__start">
+        <button class="btn btn-new" id="newBtn">
+          <span class="btn-icon">⚔️</span> New Quest
+        </button>
+      </div>
+      <div class="app-header__center">
+        <h1 class="app-title">Realm of Conquest</h1>
+      </div>
+      <div class="app-header__end">
+        <div class="turn-badge red" id="turnBadge">Red's turn</div>
+        <p class="message" id="message">Roll the dice to move.</p>
+      </div>
+    </header>
+
+    <div class="app-main">
+
+      <aside class="panel panel-hud" aria-label="Player status">
+        <div class="panel-label">Warriors</div>
+        <div class="health-bars" id="healthBars"></div>
+      </aside>
+
+      <main class="panel panel-board" aria-label="Game board">
+        <div class="board-viewport">
+          <div class="board-stage" id="boardStage" title="Drag to orbit · Alt+drag to pan · Scroll to zoom · Double-click to reset">
+            <div class="board-camera-rig" id="boardCameraRig">
+              <div class="board-plane" id="boardPlane">
+                <div class="board-field" aria-hidden="true"></div>
+                <div class="board" id="board"></div>
+                <div class="board-landmarks" id="boardLandmarks" aria-hidden="true"></div>
+                <div class="board-characters" id="boardCharacters" aria-hidden="true"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <aside class="panel panel-controls" aria-label="Game controls">
+        <div class="panel-label">Commands</div>
+
+        <div class="dice-wrap" id="dice">
+          <span class="dice-idle-icon">🎲</span>
+        </div>
+
+        <div class="turn-actions">
+          <button class="btn btn-attack" id="meleeAttackBtn">⚔️ Melee</button>
+          <button class="btn btn-mode" id="modeSpellsBtn">🔮 Spells</button>
+          <button class="btn btn-roll" id="rollBtn">🎲 Roll Dice</button>
+          <button class="btn btn-skip" id="skipMoveBtn">⏭ Skip Move</button>
+          <button class="btn btn-move" id="moveBtn" disabled>🚶 Move</button>
+          <button class="btn btn-end-turn" id="endTurnBtn" disabled>🔚 End Turn</button>
+        </div>
+
+        <div class="direction-buttons" id="directionButtons" style="display:none;"></div>
+
+        <div class="panel-label panel-label-sub">Abilities</div>
+        <div class="ability-panel" id="abilityPanel"></div>
+
+        <div class="game-log" id="gameLog"></div>
+      </aside>
+
+    </div>
+  </div>
+
+  <!-- Camera tools: outside board stage so perspective doesn't trap fixed positioning -->
+  <div class="board-tools-dock" id="boardToolsDock" aria-label="Board camera">
+    <div class="board-zoom-controls">
+      <button type="button" class="board-zoom-btn" id="zoomInBtn" title="Zoom in">+</button>
+      <button type="button" class="board-zoom-btn" id="zoomOutBtn" title="Zoom out">−</button>
+      <button type="button" class="board-zoom-btn" id="zoomResetBtn" title="Reset view">⟲</button>
+    </div>
+    <button type="button" class="board-landmarks-toggle" id="landmarksToggle" title="Toggle 3D landmarks">🏔</button>
+  </div>
+
+  <!-- Modals -->
+  <div class="modal" id="attackModal">
+    <div class="modal-content">
+      <div class="modal-title">⚔️ Combat!</div>
+      <div class="modal-text" id="attackModalText"></div>
+      <div class="modal-buttons">
+        <button class="btn btn-attack" id="attackBtn">⚔️ Attack</button>
+        <button class="btn btn-pass" id="passBtn">🛡 Retreat</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="combatModal">
+    <div class="modal-content">
+      <div class="modal-title">⚔️ Battle Results</div>
+      <div class="modal-text" id="combatModalText"></div>
+      <div class="combat-result" id="combatResult"></div>
+      <button class="btn btn-roll" id="combatOkBtn" style="margin-top:16px;">✔ Continue</button>
+    </div>
+  </div>
+
+  <div class="modal" id="abilityModal">
+    <div class="modal-content"></div>
+  </div>
+
+  <script src="gameState.js"></script>
+  <script src="boardGraph.js"></script>
+  <script src="boardCamera.js"></script>
+  <script src="characterSelect.js"></script>
+  <script src="boardLandmarks.js"></script>
+  <script src="cards.js"></script>
+  <script src="abilitySystem.js"></script>
+  <script src="ui.js"></script>
+  <script src="main.js"></script>
+  <script src="fantasy-particles.js"></script>
+</body>
+</html>

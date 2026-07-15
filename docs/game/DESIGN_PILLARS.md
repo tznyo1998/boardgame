@@ -1,9 +1,9 @@
 # Design Pillars
 
 Status: Approved
-Last updated: 2026-07-09
+Last updated: 2026-07-15
 
-All five pillars approved by project owner on 2026-07-09.
+All five pillars approved by project owner on 2026-07-09. Pillar 5 renamed and rewritten on 2026-07-15 to reflect confirmed multiplayer direction.
 
 ## Pillar 1: Every Turn Is a Decision, Not a Ritual
 
@@ -45,12 +45,12 @@ Design implications: Spells with unbounded loops need safety caps and clear play
 
 What would violate this pillar: Spells that deal purely random damage with no player input or counterplay. Turn-skip effects that stack with no counterplay. Movement luck in round 1 creating a card-count deficit that the player cannot recover from.
 
-## Pillar 5: Hot-Seat Social Play First
+## Pillar 5: Social Play and Spectator Readability First
 
-Definition: Every mechanic should be legible and entertaining to players who are currently watching rather than acting. The experience at the table — the reactions, the shared tension — is as much a feature as the game itself.
+Definition: Every mechanic should be legible and entertaining to players who are not currently acting — whether they are sitting next to the active player in local hot-seat or watching remotely in a future online mode. The social experience — reactions, shared tension, readable drama — is as much a feature as the game itself.
 
-Why it matters: This is a local hot-seat game for 4 players. People are sitting together, reacting out loud. The game's visual feedback systems (impact animations, center popups, game log, dice display) are clearly designed for shared-screen readability. This pillar locks in that social layer as a priority.
+Why it matters: The current prototype is local hot-seat, where players share a screen and react out loud. Online multiplayer is a future goal. Both formats require the same foundation: clear visual feedback, short downtime between turns, combat and spell results that are immediately understandable, and an experience that keeps inactive players engaged rather than waiting passively. Designing for spectator readability now ensures the game works well locally today and transitions naturally to online play later without a fundamental redesign.
 
-Design implications: Every consequential event should be announced clearly on screen so observers can react. Turn structure should keep downtime short. Elimination should give the eliminated player something to engage with, or the game should end before downtime becomes painful. Cards with long resolution sequences should animate clearly for observers.
+Design implications: Every consequential event — a combo landing, a Deathless Resolve trigger, a Soul Swap — should be announced clearly on screen so all players can react, regardless of whether they are in the same room or connected remotely. Turn structure should keep per-turn downtime short enough that waiting players stay engaged. Elimination should give eliminated players something to watch or participate in, or the game should end before downtime becomes painful. Cards with long resolution sequences (loop spells, multi-roll effects) should animate step by step so observers can follow. Information that matters to non-active players (health bars, status effects, board positions, the game log) should be visible at all times. New features should be evaluated for how they read to someone who is watching, not just for how they feel to the player executing them.
 
-What would violate this pillar: Private information hidden from observers without a compelling design reason. Turns so long that three players wait several minutes. Combat resolution opaque to non-active players.
+What would violate this pillar: Private information hidden from other players without a compelling design reason. Turns so long that inactive players disengage. Combat resolution that is opaque to non-active players. Mechanics that are only comprehensible to the person clicking the buttons. Features that work in local hot-seat but would be fundamentally unreadable in an online spectator view.

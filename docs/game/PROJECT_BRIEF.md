@@ -1,7 +1,7 @@
 # Project Brief
 
 Status: Draft
-Last updated: 2026-07-09
+Last updated: 2026-07-15
 
 ## Working title
 
@@ -11,7 +11,7 @@ Untitled Fantasy Board Game (working title — **open question**: does the proje
 
 - Platform or engine: Browser-based (vanilla HTML / CSS / JavaScript, no framework)
 - Digital, physical, or hybrid: Digital
-- Single-player, local multiplayer, online multiplayer, or combination: Local multiplayer (hot-seat, 4 players sharing one screen)
+- Single-player, local multiplayer, online multiplayer, or combination: Local multiplayer (hot-seat) is the current prototype and immediate development priority. Online multiplayer is a confirmed future goal.
 - Target devices: Desktop browsers (**assumption**: mobile is not a primary target given the UI layout and camera controls)
 
 ## One-sentence concept
@@ -56,7 +56,7 @@ The repository contains a playable browser prototype with the following implemen
 ## Known constraints
 
 - **No build system or framework**: Pure vanilla JS with global `window.Game` namespace. All scripts loaded via `<script>` tags in `index.html`.
-- **No server or networking**: Local-only; all state is client-side.
+- **No server or networking yet**: Local-only; all state is client-side. Online multiplayer is a future goal but no networking infrastructure exists in the current prototype.
 - **No persistence**: Game state is not saved between sessions.
 - **Asset pipeline**: Card art is numbered PNGs; character sprites are individual files. No automated asset pipeline.
 - **No automated tests**: No test framework or test files observed.
@@ -64,11 +64,12 @@ The repository contains a playable browser prototype with the following implemen
 
 ## Non-goals
 
-**Open question.** The following are assumptions based on the current prototype scope:
+No confirmed non-goals yet. The following are unresolved questions:
 
-- Online multiplayer networking (assumption — no server infrastructure exists)
-- AI opponents (assumption — no AI logic exists)
-- Mobile-first design (assumption — layout is desktop-oriented)
+- AI opponents (**open question** — no AI logic exists in the prototype; not confirmed as a goal or non-goal)
+- Mobile-first design (**open question** — the current layout is desktop-oriented, but mobile support has not been ruled out)
+
+Note: Online multiplayer is a confirmed future goal and must not be listed here.
 
 ## Current major questions
 

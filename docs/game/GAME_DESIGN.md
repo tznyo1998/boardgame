@@ -1,13 +1,13 @@
 # Game Design Document
 
 Status: Draft
-Last updated: 2026-07-09
+Last updated: 2026-07-15
 
 ---
 
 ## Game overview
 
-This is a 4-player fantasy battle game played on a shared board in hot-seat (pass-and-play) format. Each player controls a champion that races around an outer track, ventures down inner corridors toward a central arena, and accumulates spell cards from ability tiles scattered across the board. Champions attack rivals with melee or spells, spending Essence (mana) to fuel abilities and spending Health when hit. The last champion standing wins. Every turn demands a concrete sequence of choices — where to move, whether to fight now or save Essence, whether to dive toward the center for a resource bonus or stay on the outer track where ability tiles cluster. The game is designed to be legible and entertaining for players who are watching and waiting for their turn, with dramatic dice rolls, visible spell effects, and a game log that narrates every event.
+This is a 4-player fantasy battle game played on a shared board. The current prototype uses local hot-seat (pass-and-play) format, with online multiplayer planned as a future goal. Each player controls a champion that races around an outer track, ventures down inner corridors toward a central arena, and accumulates spell cards from ability tiles scattered across the board. Champions attack rivals with melee or spells, spending Essence (mana) to fuel abilities and spending Health when hit. The last champion standing wins. Every turn demands a concrete sequence of choices — where to move, whether to fight now or save Essence, whether to dive toward the center for a resource bonus or stay on the outer track where ability tiles cluster. The game is designed to be legible and entertaining for players who are watching and waiting for their turn, with dramatic dice rolls, visible spell effects, and a game log that narrates every event.
 
 ---
 
@@ -252,7 +252,7 @@ Melee and Spells modes are mutually exclusive for the turn — choosing one prev
 
 ## Multiplayer considerations
 
-**Hot-seat format.** The game is designed for 4 players sharing one device, passing it between turns. This is the only supported play format. There is no online multiplayer, no AI opponent, and no single-player mode.
+**Current format: local hot-seat.** The prototype is built for 4 players sharing one device, passing control between turns. This is the immediate development priority. Online multiplayer is a confirmed future goal but no networking infrastructure exists yet. AI opponents and single-player mode remain open questions.
 
 **Turn visibility.** Every action resolves with animated feedback (movement step animation at 150ms intervals, dice roll animations, combat result modal, spell cast overlay) intended to keep watching players engaged. The game log records all events in text, giving spectating players a narrative of what happened.
 
@@ -260,7 +260,7 @@ Melee and Spells modes are mutually exclusive for the turn — choosing one prev
 
 **Downtime.** In a 4-player game, each player waits through 3 other turns before acting again. Turns involving only movement and no combat resolve quickly (seconds). Turns with multiple spell casts can take longer due to animations and modal interactions. The game log and board visibility help spectating players stay engaged.
 
-**Spectator legibility.** Combat resolution is displayed in a dedicated modal showing both dice rolls and the result. Spell effects are announced in the game log. Health bars are always visible for all players. The board camera auto-focuses on the active player. All of these serve Pillar 5 (Hot-Seat Social Play First).
+**Spectator legibility.** Combat resolution is displayed in a dedicated modal showing both dice rolls and the result. Spell effects are announced in the game log. Health bars are always visible for all players. The board camera auto-focuses on the active player. All of these serve Pillar 5 (Social Play and Spectator Readability First) and will translate directly to an online multiplayer context where remote players need the same visual clarity.
 
 ---
 
@@ -323,7 +323,7 @@ Entering the center tile currently only applies the `essence_empowerment` status
 The 31-card pool shared among 4 players creates theoretical scarcity (each player can hold at most 3 cards, so a maximum of 12 of 31 cards would be in play if all players filled their hands). In practice, depletion is unlikely within a game's natural length at 4 players. The intended scarcity tension — fighting over a limited pool — does not materialize in most games.
 
 **Risk 6: Pacing has no escalation.**
-The game has no mechanism to prevent indefinite avoidance. Players can stay on the outer track and never engage if they choose. No shrinking play area, no turn limit, no escalating event deck, and no forced movement toward other players means games can stall. This is a pacing risk for hot-seat play where waiting players are watching.
+The game has no mechanism to prevent indefinite avoidance. Players can stay on the outer track and never engage if they choose. No shrinking play area, no turn limit, no escalating event deck, and no forced movement toward other players means games can stall. This is a pacing risk in any multiplayer format — local hot-seat (where waiting players are watching) and future online play (where remote players may disengage entirely).
 
 **Risk 7: Undead state is a permanent dead-end for the player who triggers it.**
 Once Undead, a player cannot cast spells, cannot draw cards, and always deals exactly 5 melee damage. Against a spell-empowered opponent at full HP, an Undead player at 10 HP would need 4 successful melee hits to win, all on the same tile, while unable to mitigate incoming damage. The Deathless Resolve trigger trades near-certain death for a low-viability survival state. This may feel like a false hope rather than a genuine second chance.
